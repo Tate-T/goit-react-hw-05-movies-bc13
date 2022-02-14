@@ -1,14 +1,34 @@
-import { NavLink } from 'react-router-dom';
-// import HomePage from './components/HomePage/HomePage';
-// import MoviesPage from './components/MoviesPage/MoviesPage';
+import { Switch, NavLink, Route } from 'react-router-dom';
+import HomeView from './views/HomePage';
+import MoviesView from './views/MoviesView';
+import NotFoundViews from './views/NotFoundViews';
 import './App.css';
 
 function App() {
   return (
-    <nav className="nav">
-      <NavLink to="/home" className="navLink" activeClassName="activeLink">Home</NavLink>
-      <NavLink to="/movies" className="navLink" activeClassName="activeLink">Movies</NavLink>
-    </nav>
+    <>
+      <nav className="nav">
+        <NavLink exact to="/" className="navLink" activeClassName="activeLink">Home</NavLink>
+        <NavLink to="/movies" className="navLink" activeClassName="activeLink">Movies</NavLink>
+      </nav>
+
+      <Switch>
+
+        <Route path="/" exact>
+          <HomeView />
+        </Route>
+
+        <Route path="/movies">
+          <MoviesView />
+        </Route>
+
+        <Route path="/movies">
+          <NotFoundViews />
+        </Route>
+
+      </Switch>
+
+    </>
   );
 }
 
