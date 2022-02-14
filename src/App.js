@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import HomePage from './components/HomePage/HomePage';
 // import MoviesPage from './components/MoviesPage/MoviesPage';
 import './App.css';
@@ -6,8 +6,8 @@ import './App.css';
 function App() {
   return (
     <nav className="nav">
-      <Link to="/homepage" className="nav_link">Home</Link>
-      <Link to="/MoviesPage" className="nav_link">Movies</Link>
+      <NavLink to="/home" className="navLink" activeClassName="activeLink">Home</NavLink>
+      <NavLink to="/movies" className="navLink" activeClassName="activeLink">Movies</NavLink>
     </nav>
   );
 }

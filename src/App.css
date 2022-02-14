@@ -3,10 +3,15 @@
   box-shadow: 3px 2px 5px black;
 }
 
-.nav_link {
+.navLink {
   display: inline-block;
   margin: 15px 20px;
   text-decoration: none;
   font-weight: bold;
   color:rgb(90, 88, 88)
+}
+
+.activeLink {
+  color: rebeccapurple;
+  border-bottom: 1px solid rebeccapurple;
 }
