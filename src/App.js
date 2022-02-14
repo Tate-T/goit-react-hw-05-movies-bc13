@@ -5,10 +5,10 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Link to="/homepage">HomePage</Link>
-      <Link to="/MoviesPage">MoviesPage</Link>
-    </div>
+    <nav className="nav">
+      <Link to="/homepage" className="nav_link">Home</Link>
+      <Link to="/MoviesPage" className="nav_link">Movies</Link>
+    </nav>
   );
 }
 
