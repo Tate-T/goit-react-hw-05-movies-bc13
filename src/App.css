@@ -5,13 +5,14 @@
 
 .navLink {
   display: inline-block;
-  margin: 15px 20px;
+  margin: 15px 20px 0 20px;
   text-decoration: none;
   font-weight: bold;
   color:rgb(90, 88, 88)
 }
 
 .activeLink {
-  color: rebeccapurple;
-  border-bottom: 1px solid rebeccapurple;
+  padding-bottom: 15px;
+  color: rgb(5, 153, 238);
+  border-bottom: 4px solid rgb(5, 153, 238);
 }

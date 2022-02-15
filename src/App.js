@@ -1,17 +1,17 @@
-import { lazy } from 'react';
+// import { lazy } from 'react';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import './App.css';
-// import HomeView from './views/HomePage';
-// import MoviesView from './views/MoviesView';
-// import MovieDetailsView from './views/MovieDetailsView';
+import HomeView from './views/HomeView';
+import MoviesView from './views/MoviesView';
+import MovieDetailsView from './views/MovieDetailsView';
 // import CastView from './views/CastView';
 // import ReviewsView from './views/ReviewsView';
-// import NotFoundViews from './views/NotFoundViews';
+import NotFoundViews from './views/NotFoundViews';
 
-const HomeView = lazy(() => import('./views/HomeView.js'));
-const MoviesView = lazy(() => import('./views/MoviesView.js'));
-const MovieDetailsView = lazy(() => import('./views/MovieDetailsView.js'));
-const NotFoundViews = lazy(() => import('./views/MovieDetailsView.js'));
+// const HomeView = lazy(() => import('./views/HomeView.js'));
+// const MoviesView = lazy(() => import('./views/MoviesView.js'));
+// const MovieDetailsView = lazy(() => import('./views/MovieDetailsView.js'));
+// const NotFoundViews = lazy(() => import('./views/MovieDetailsView.js'));
 
 function App() {
   return (
@@ -24,15 +24,15 @@ function App() {
       <Switch>
 
         <Route path="/" exact>
-          <HomeView />
+          {/* <HomeView /> */}
         </Route>
 
         <Route path="/movies" exact>
-          <MoviesView />
+          {/* <MoviesView /> */}
         </Route>
 
         <Route path="/movies/:movieId">
-          <MovieDetailsView />
+          {/* <MovieDetailsView /> */}
         </Route>
 
         <Route path="/movies">
