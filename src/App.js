@@ -1,11 +1,19 @@
+import { lazy } from 'react';
 import { Switch, NavLink, Route } from 'react-router-dom';
-import HomeView from './views/HomePage';
-import MoviesView from './views/MoviesView';
-import MovieDetailsView from './views/MovieDetailsView';
-import CastView from './views/CastView';
-import ReviewsView from './views/ReviewsView';
-import NotFoundViews from './views/NotFoundViews';
+// import HomeView from './views/HomePage';
+// import MoviesView from './views/MoviesView';
+// import MovieDetailsView from './views/MovieDetailsView';
+// import CastView from './views/CastView';
+// import ReviewsView from './views/ReviewsView';
+// import NotFoundViews from './views/NotFoundViews';
 import './App.css';
+
+const HomeView = lazy(() => import('./views/HomeView.js'));
+const MoviesView = lazy(() => import('./views/MoviesView.js'));
+const MovieDetailsView = lazy(() => import('./views/MovieDetailsView.js'));
+const CastView = lazy(() => import('./views/MovieDetailsView.js'));
+const ReviewsView = lazy(() => import('./views/MovieDetailsView.js'));
+const NotFoundViews = lazy(() => import('./views/MovieDetailsView.js'));
 
 function App() {
   return (
