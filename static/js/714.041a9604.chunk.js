@@ -1,1 +1,0 @@
-(self.webpackChunkgoit_react_hw_05_movies_bc13=self.webpackChunkgoit_react_hw_05_movies_bc13||[]).push([[714],{714:function(){}}]);
