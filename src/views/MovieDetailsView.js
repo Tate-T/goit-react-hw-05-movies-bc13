@@ -1,30 +1,46 @@
-// import { useState, useEffect } from 'react';
-// import { useParams, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useParams, Route, Link } from "react-router-dom";
 
-// import * as moviesAPI from '../services/movieAPI';
-// import MoviesDetailsPage from '../components/MoviesPage/MovieDetailsPage/MovieDetailsPage';
+import fetches from '../services/moviesAPI';
 
-// export default function MoviesDetailsView() {
-//     const movieId = useParams();
-//     const [movie, setMovie] = useState(null);
+export default function MoviesDetailsView() {
+    const { movieId } = useParams();
+    const [movies, setMovies] = useState([]);
 
-//     useEffect(() => {
-//         moviesAPI.fetchMovieById(movieId).then(setMovie);
-//     }, [movieId])
+    useEffect(() => {
+        fetches.fetchMovieDetail(movieId).then(res => {
+            setMovies(res.movies)
+        });
+    }, [movieId, movies])
 
-//     return (
-//         <>
-//             <MoviesDetailsPage text={`Детали ${movieId}`} />
 
-//             {movie && <h2>{movie.title}</h2>}
+    return (
+        <>
+            {movies && <>
+                <div>
+                    {movies.poster_path}
+                    <h2>{movies.title}</h2>
+                    <p>User score:{movies.vote_average}</p>
+                    <h3>Overview</h3>
+                    <p>{movies.overview}</p>
+                    <h4>Genres</h4>
+                    <p>{movies.genres.genre.name}</p>
+                </div>
+                <div>
+                    <h2>Additional information</h2>
+                    <Link to=''>Cast</Link>
+                    <Link to=''>Reviews</Link>
+                </div>
+            </>
+            }
 
-//             <Route path="/movies/:movieId/cast">
-//                 <CastView />
-//             </Route>
+            <Route path="/movies/:movieId/cast">
+                {/* <CastView /> */}
+            </Route>
 
-//             <Route path="/movies/:movieId/reviews">
-//                 <ReviewsView />
-//             </Route>
-//         </>
-//     )
-// }
+            <Route path="/movies/:movieId/reviews">
+                {/* <ReviewsView /> */}
+            </Route>
+        </>
+    )
+}

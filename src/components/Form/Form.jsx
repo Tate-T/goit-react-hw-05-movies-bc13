@@ -17,7 +17,7 @@ const Form = ({ onSubmit }) => {
     }
 
     return (
-        <form action="" className={s.form} onSubmit={onSubmit}>
+        <form action="" className={s.form} onSubmit={OnSubmit}>
             <label htmlFor="" className={s.label} onChange={handleInputChange}>
                 <input type="text" name={query} className={s.input} />
             </label>
