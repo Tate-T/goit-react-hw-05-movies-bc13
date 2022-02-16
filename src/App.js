@@ -1,5 +1,5 @@
-import { lazy } from 'react';
-import { Switch, NavLink, Route, Suspense } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { Switch, NavLink, Route } from 'react-router-dom';
 import './App.css';
 // import HomeView from './views/HomeView';
 // import MoviesView from './views/MoviesView';
