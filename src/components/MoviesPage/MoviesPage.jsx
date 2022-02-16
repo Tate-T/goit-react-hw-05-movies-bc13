@@ -1,8 +1,20 @@
-// import s from './MoviesPage.module.css';
+import s from './MoviesPage.module.css';
 
 const MoviesPage = () => {
     return (
-        <h2>фільми</h2>
+        <>
+            <form action="" className={s.form}>
+                <label htmlFor="" className={s.label}>
+                    <input type="text" className={s.input} />
+                </label>
+                <button>Search</button>
+            </form>
+            <ul>
+                <li>
+                    Link
+                </li>
+            </ul>
+        </>
     )
 }
 
