@@ -1,20 +1,22 @@
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 // import { Link, useRouteMatch } from 'react-router-dom';
-// import * as moviesAPI from '../services/moviesAPI';
-import MoviesPage from '../components/MoviesPage/MoviesPage';
+import fetches from '../services/moviesAPI';
+import Form from '../components/Form/Form';
+import MoviesList from '../components/MoviesList/MoviesList';
 
 export default function MoviesView() {
     // const url = useRouteMatch();
-    // const [movies, setMovies] = useState(null);
+    const [movies, setMovies] = useState([]);
+    const [query, setQuery] = useState("")
 
-    // useEffect(() => {
-    //     moviesAPI.fetchMovies().then(setMovies);
-    // }, [])
+    useEffect(() => {
+        query && fetches.fetchMovie(query).then(res => setMovies(res.results));
+    }, [query])
 
     return (
         <>
-            <MoviesPage />
-            {/* {movies && movies.map(movie => <li key={movie.id} ><Link to={`/${url}/${movie.id}`}>{movie.title}</Link></li>)} */}
+            <Form onSubmit={setQuery} />
+            {query && <MoviesList movies={movies} />}
         </>
     )
 }
