@@ -2,7 +2,7 @@
 
 const MoviesPage = () => {
     return (
-        <h2>новини</h2>
+        <h2>фільми</h2>
     )
 }
 

@@ -1,13 +1,15 @@
 import HomePage from '../components/HomePage/HomePage';
 
-export default function HomeView() {
+export default function HomeView(movies) {
     return (
         <>
             <HomePage />
             <ul>
-                <li>
-                    стаття
-                </li>
+                {movies.map(movie => {
+                    <li>
+                        <Link>{movie}</Link>
+                    </li>
+                })}
             </ul>
         </>
     )

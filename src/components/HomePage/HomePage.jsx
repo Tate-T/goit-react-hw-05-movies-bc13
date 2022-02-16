@@ -2,7 +2,7 @@
 
 const HomePage = () => {
     return (
-        <h1>новини</h1>
+        <h1>Trending today</h1>
     )
 }
 
