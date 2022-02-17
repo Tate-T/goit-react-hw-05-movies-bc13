@@ -1,6 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { Switch, NavLink, Route } from 'react-router-dom';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import HomeView from './views/HomeView';
 // import MoviesView from './views/MoviesView';
 // import MovieDetailsView from './views/MovieDetailsView';
@@ -42,6 +44,13 @@ function App() {
 
         </Switch>
       </Suspense>
+      <ToastContainer position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        draggable
+        pauseOnHover
+        theme='colored'
+      />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import s from './Form.module.css';
+import { toast } from 'react-toastify';
 
 const Form = ({ onSubmit }) => {
 
@@ -12,6 +13,10 @@ const Form = ({ onSubmit }) => {
 
     const OnSubmit = (e) => {
         e.preventDefault()
+        if (query.trim() === '') {
+            toast.info('Enter the name of movie');
+            return
+        }
         onSubmit(query)
         setQuery('')
     }
