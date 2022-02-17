@@ -8,16 +8,18 @@ const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 export default function MoviesDetailsView() {
     const match = useRouteMatch();
     const { movieId } = useParams();
-    const [movies, setMovies] = useState([]);
+    const [movie, setMovie] = useState(null);
+
 
     useEffect(() => {
-        fetches.fetchMovieDetail(movieId).then(res => setMovies(res));
-    }, [movieId, movies])
+        fetches.fetchMovieDetail(movieId).then(res => setMovie(res));
+
+    }, [movieId])
 
 
     return (
         <>
-            {movies && <>
+            {movie && <>
                 <div>
                     <Link to="/" style={{
                         display: 'block',
@@ -34,15 +36,15 @@ export default function MoviesDetailsView() {
                     }}>
                         Go back</Link>
                     <div style={{ display: 'flex' }}>
-                        <img src={`https://image.tmdb.org/t/p/w300${movies.poster_path}`} style={{ marginLeft: '20px', marginRight: '20px' }} alt='' />
+                        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} style={{ marginLeft: '20px', marginRight: '20px' }} alt='' />
                         <div style={{ margin: '20px' }}>
-                            <h2>{movies.title}</h2>
-                            <p>User score: {movies.vote_average}</p>
+                            <h2>{movie.title}</h2>
+                            <p>User score: {movie.vote_average}</p>
                             <h3>Overview</h3>
-                            <p>{movies.overview}</p>
+                            <p>{movie.overview}</p>
                             <h4>Genres:</h4>
                             <ul>
-                                {movies.genres && movies.genres.map(genre => (
+                                {movie?.genres?.length && movie.genres.map(genre => (
                                     <li key={genre.id}>{genre.name}</li>
                                 ))}
                             </ul>
@@ -59,8 +61,8 @@ export default function MoviesDetailsView() {
                         marginLeft: '20px'
                     }}>Additional information</h2>
                     <div>
-                        <Link to={match.url + '/cast'} style={{ display: 'block', margin: '20px' }}>Cast</Link>
-                        <Link to={match.url + '/reviews'} style={{ display: 'block', margin: '20px' }}>Reviews</Link>
+                        <Link to={{ pathname: `${match.url}/cast`, state: movieId }} style={{ display: 'block', margin: '20px' }}>Cast</Link>
+                        <Link to={{ pathname: `${match.url}/reviews`, state: movieId }} style={{ display: 'block', margin: '20px' }}>Reviews</Link>
                     </div>
                 </div>
             </>
