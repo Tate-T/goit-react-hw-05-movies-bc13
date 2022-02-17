@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, Route, Link, useRouteMatch } from "react-router-dom";
 import fetches from '../services/moviesAPI';
-// import Cast from '../components/Cast/Cast';
-// import Reviews from '../components/Reviews/Reviews';
+import { lazy, Suspense } from 'react';
+const Cast = lazy(() => import('../components/Cast/Cast'));
+const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 
 export default function MoviesDetailsView() {
     const match = useRouteMatch();
@@ -65,13 +66,15 @@ export default function MoviesDetailsView() {
             </>
             }
 
-            <Route path={match.url + '/cast'}>
-                {/* <Cast /> */}
-            </Route>
+            <Suspense fallback={<h1>Loading...</h1>}>
+                <Route path={match.url + '/cast'}>
+                    <Cast />
+                </Route>
 
-            <Route path={match.url + '/reviews'}>
-                {/* <Reviews /> */}
-            </Route>
+                <Route path={match.url + '/reviews'}>
+                    <Reviews />
+                </Route>
+            </Suspense >
         </>
     )
 }

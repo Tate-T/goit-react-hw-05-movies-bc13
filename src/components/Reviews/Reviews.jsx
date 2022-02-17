@@ -1,24 +1,26 @@
 // import s from './Reviews.module.css';
-// import { lazy } from 'react';
-// import { useState, useEffect } from 'react';
-// import { Link, useRouteMatch } from 'react-router-dom';
-// import * as moviesAPI from '../services/moviesAPI';
-// import MoviesPage from '../components/MoviesPage/MoviesPage';
+import { useState, useEffect } from 'react';
+import fetches from '../../services/moviesAPI';
 
-// const ReviewsView = lazy(() => import('./views/MovieDetailsView.js'));
 
-// export default function MoviesView() {
-//     const url = useRouteMatch();
-//     const [movies, setMovies] = useState(null);
+export default function Reviews({ movieId }) {
+    const [reviews, setReviews] = useState([]);
 
-//     useEffect(() => {
-//         moviesAPI.fetchMovies().then(setMovies);
-//     }, [])
+    useEffect(() => {
+        fetches.fetchReviews(movieId).then(res => setReviews(res));
+    }, [movieId])
 
-//     return (
-//         <>
-//             <MoviesPage />
-//             {movies && movies.map(movie => <li key={movie.id} ><Link to={`/${url}/${movie.id}`}>{movie.title}</Link></li>)}
-//         </>
-//     )
-// }
+    return (
+        <>
+            {reviews && reviews.results.length !== 0 ? (
+                reviews.results.map(review => (
+                    <li key={review.id}>
+                        <h3>Author: {review.author}</h3>
+                        <p>{review.content}</p>
+                    </li>
+                ))
+            ) : (<></>)}
+            {reviews && reviews.results.length === 0 && <h3>We dont have any reviews for this movie</h3>}
+        </>
+    )
+}
