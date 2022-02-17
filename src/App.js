@@ -17,7 +17,7 @@ const NotFoundViews = lazy(() => import('./views/MovieDetailsView.js'));
 
 function App() {
   return (
-    <>
+    <div className="navContainer">
       <nav className="nav">
         <NavLink exact to="/" className="navLink" activeClassName="activeLink">Home</NavLink>
         <NavLink to="/movies" className="navLink" activeClassName="activeLink">Movies</NavLink>
@@ -51,7 +51,7 @@ function App() {
         pauseOnHover
         theme='colored'
       />
-    </>
+    </div>
   );
 }
 

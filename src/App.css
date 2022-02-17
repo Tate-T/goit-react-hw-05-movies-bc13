@@ -1,3 +1,8 @@
+.navContainer {
+
+  background-color:azure
+}
+
 .nav {
   border-bottom: 1px solid gray;
   box-shadow: 3px 2px 5px black;

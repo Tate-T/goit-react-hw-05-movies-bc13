@@ -13,7 +13,7 @@ const MoviesList = ({ movies }) => {
                     to={{
                         pathname: '/movies/' + movie.id,
                         state: { from: location },
-                    }} activeStyle={{ color: "rgb(5, 153, 238)" }}>{movie.title || movie.name}</NavLink>
+                    }} activeStyle={{ color: "rgb(5, 153, 238)" }}>{movie.title || movie.name};</NavLink>
             </li>)
             )}
         </ul >

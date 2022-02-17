@@ -18,7 +18,7 @@ export default function MoviesDetailsView() {
 
 
     return (
-        <>
+        <div style={{ paddingTop: '1px', paddingBottom: '30px', backgroundColor: 'rgb(188, 236, 236)' }}>
             {movie && <>
                 <div>
                     <Link to="/" style={{
@@ -55,7 +55,8 @@ export default function MoviesDetailsView() {
                     margin: '20px',
                     borderBottom: '1px solid grey',
                     borderTop: '1px solid grey',
-                    boxShadow: '0px 0px 4px blue'
+                    boxShadow: '0px 0px 4px blue',
+                    backgroundColor: 'white'
                 }}>
                     <h2 style={{
                         marginLeft: '20px'
@@ -77,6 +78,6 @@ export default function MoviesDetailsView() {
                     <Reviews />
                 </Route>
             </Suspense >
-        </>
+        </div>
     )
 }

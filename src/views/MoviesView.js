@@ -14,9 +14,9 @@ export default function MoviesView() {
     }, [query])
 
     return (
-        <>
+        <div style={{ margin: '0', paddingTop: '1px', paddingBottom: '700px', backgroundColor: 'rgb(188, 236, 236)' }}>
             <Form onSubmit={setQuery} />
             {query && <MoviesList movies={movies} />}
-        </>
+        </div>
     )
 }
