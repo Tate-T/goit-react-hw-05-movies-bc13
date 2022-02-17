@@ -8,9 +8,9 @@ export default function MoviesView() {
     // const url = useRouteMatch();
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("")
-
+    console.log(query)
     useEffect(() => {
-        query && fetches.fetchMovie(query).then(res => setMovies(res.results));
+        query && fetches.fetchMovie(query).then(res => { setMovies(res.results); console.log(res) });
     }, [query])
 
     return (

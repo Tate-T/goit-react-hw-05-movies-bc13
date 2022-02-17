@@ -6,7 +6,7 @@ const Form = ({ onSubmit }) => {
     const [query, setQuery] = useState('');
 
     const handleInputChange = (e) => {
-        const { value } = e.currentTarget;
+        const { value } = e.target;
         setQuery(value)
     }
 
@@ -18,8 +18,8 @@ const Form = ({ onSubmit }) => {
 
     return (
         <form action="" className={s.form} onSubmit={OnSubmit}>
-            <label htmlFor="" className={s.label} onChange={handleInputChange}>
-                <input type="text" name={query} className={s.input} />
+            <label className={s.label} >
+                <input type="text" value={query} name='query' className={s.input} onChange={handleInputChange} />
             </label>
             <button>Search</button>
         </form>
