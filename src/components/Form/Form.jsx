@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import s from './Form.module.css';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 const Form = ({ onSubmit }) => {
 
@@ -29,6 +30,10 @@ const Form = ({ onSubmit }) => {
             <button>Search</button>
         </form>
     )
+}
+
+Form.propTypes = {
+    query: PropTypes.string
 }
 
 export default Form

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import fetches from '../../services/moviesAPI';
-
+import PropTypes from 'prop-types';
 
 export default function Reviews() {
     const [reviews, setReviews] = useState([]);
@@ -10,7 +10,7 @@ export default function Reviews() {
     const movieId = location.state;
 
     useEffect(() => {
-        movieId && fetches.fetchReviews(movieId).then(res => { setReviews(res.results); console.log(res) });
+        movieId && fetches.fetchReviews(movieId).then(res => setReviews(res.results));
     }, [movieId])
 
     return (
@@ -25,4 +25,8 @@ export default function Reviews() {
             </ul> : <h3>We dont have any reviews for this movie</h3>}
         </>
     )
+}
+
+Reviews.propTypes = {
+    reviews: PropTypes.array
 }

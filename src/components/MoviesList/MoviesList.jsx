@@ -1,6 +1,6 @@
 import s from './MoviesList.module.css';
 import { useLocation, NavLink } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const MoviesList = ({ movies }) => {
     const location = useLocation();
@@ -20,8 +20,8 @@ const MoviesList = ({ movies }) => {
     )
 }
 
-// MoviesList.propTypes = {
-//     movies: PropTypes.func
-// }
+MoviesList.propTypes = {
+    movies: PropTypes.array
+}
 
 export default MoviesList

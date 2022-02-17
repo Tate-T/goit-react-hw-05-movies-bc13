@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import fetches from '../../services/moviesAPI';
+import PropTypes from 'prop-types';
 
 export default function Cast() {
 
@@ -33,4 +34,8 @@ export default function Cast() {
             </ul> : <h3>We dont have any reviews for this movie</h3>}
         </>
     )
+}
+
+Cast.propTypes = {
+    casts: PropTypes.array
 }
